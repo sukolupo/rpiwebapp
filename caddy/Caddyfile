@@ -3,7 +3,7 @@
     auto_https off
 }
 
-jn-carpentry.co.uk {
+http://jn-carpentry.co.uk {
     root * /srv/astro
     file_server
     encode gzip
