@@ -3,6 +3,7 @@
     log {
         level ERROR
     }
+    auto_https off
 }
 
 jn-carpentry.co.uk {
