@@ -1,0 +1,52 @@
+version: "3.9"
+
+services:
+  caddy:
+    image: caddy:2-alpine
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+      - ./caddy/data:/data
+      - ./caddy/config:/config
+    networks:
+      - web
+    deploy:
+      resources:
+        limits:
+          memory: 200M
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    restart: unless-stopped
+    command: tunnel run
+    volumes:
+      - ./cloudflared/config.yml:/etc/cloudflared/config.yml
+      - ./cloudflared/credentials.json:/etc/cloudflared/credentials.json
+    networks:
+      - web
+    deploy:
+      resources:
+        limits:
+          memory: 80M
+
+  app:
+    build: ./app
+    container_name: myapp
+    restart: unless-stopped
+    expose:
+      - "8080"
+    networks:
+      - web
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+
+networks:
+  web:
+    driver: bridge
