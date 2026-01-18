@@ -8,7 +8,6 @@
 }
 
 jn-carpentry.co.uk {
-    tls off
     root * /srv/astro
     file_server
     encode gzip
