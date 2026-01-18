@@ -5,11 +5,10 @@
     }
     auto_https off
     http_port 80
-    https_port 443
-
 }
 
 jn-carpentry.co.uk {
+    tls off
     root * /srv/astro
     file_server
     encode gzip
