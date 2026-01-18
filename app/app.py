@@ -1,9 +1,9 @@
-from flask import Flask
-app = Flask(__name__)
+from flask import Flask, render_template
+app = Flask(__name__, template_folder="html")
 
 @app.route("/")
 def home():
-    return "Hello from Raspberry Pi 3!"
+    return render_template("main.html")
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8080)
+    app.run(host="0.0.0.0", port=8085)
