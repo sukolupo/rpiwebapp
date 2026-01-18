@@ -1,0 +1,7 @@
+tunnel: mypi
+credentials-file: /etc/cloudflared/credentials.json
+
+ingress:
+  - hostname: jn-carpentry.co.uk
+    service: http://caddy:80
+  - service: http_status:404

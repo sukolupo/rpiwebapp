@@ -1,0 +1,11 @@
+{
+    admin off
+    log {
+        level ERROR
+    }
+}
+
+jn-carpentry.co.uk {
+    reverse_proxy app:8080
+    encode gzip
+}
