@@ -4,6 +4,8 @@
         level ERROR
     }
     auto_https off
+    http_port 80
+
 }
 
 jn-carpentry.co.uk {
