@@ -28,6 +28,7 @@ services:
     volumes:
       - ./cloudflared/config.yml:/etc/cloudflared/config.yml
       - ./cloudflared/credentials.json:/etc/cloudflared/credentials.json
+      - ./cloudflared/cert.pem:/etc/cloudflared/cert.pem
     networks:
       - web
     deploy:
