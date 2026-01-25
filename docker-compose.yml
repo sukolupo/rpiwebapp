@@ -1,4 +1,4 @@
-version: "3.9"
+#version: "3.9"
 
 services:
   caddy:
@@ -6,12 +6,13 @@ services:
     container_name: caddy
     restart: unless-stopped
     ports:
-      - "80:80"
-      - "443:443"
+      - "8080:80"
+      - "8443:443"
     volumes:
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile
       - ./caddy/data:/data
       - ./caddy/config:/config
+      - ./astro/dist:/srv/astro   # Astro static files
     networks:
       - web
     deploy:
@@ -27,25 +28,13 @@ services:
     volumes:
       - ./cloudflared/config.yml:/etc/cloudflared/config.yml
       - ./cloudflared/credentials.json:/etc/cloudflared/credentials.json
+      - ./cloudflared/cert.pem:/etc/cloudflared/cert.pem
     networks:
       - web
     deploy:
       resources:
         limits:
           memory: 80M
-
-  app:
-    build: ./app
-    container_name: myapp
-    restart: unless-stopped
-    expose:
-      - "8080"
-    networks:
-      - web
-    deploy:
-      resources:
-        limits:
-          memory: 256M
 
 networks:
   web:
