@@ -1292,11 +1292,14 @@
       }
     });
     
-    // Add click listeners to all gallery images
-    document.querySelectorAll('.gallery-item img').forEach(img => {
-      img.style.cursor = 'pointer';
-      img.addEventListener('click', function() {
-        openLightbox(this.src);
+    // Add click listeners to all gallery items
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.style.cursor = 'pointer';
+      item.addEventListener('click', function() {
+        const img = this.querySelector('img');
+        if (img) {
+          openLightbox(img.src);
+        }
       });
     });
     
