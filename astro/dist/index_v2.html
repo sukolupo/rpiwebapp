@@ -635,6 +635,26 @@
       border-radius: 8px;
       box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
     }
+
+    /* Ensure images inside the lightbox scale correctly for portrait/landscape */
+    #lightbox-image img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      width: auto;
+      height: auto;
+      display: block;
+    }
+
+    #lightbox-image.portrait img {
+      height: 100%;
+      width: auto;
+    }
+
+    #lightbox-image.landscape img {
+      width: 100%;
+      height: auto;
+    }
    
     .lightbox-close {
       position: absolute;
