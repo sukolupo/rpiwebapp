@@ -1351,15 +1351,25 @@
     document.querySelectorAll('.carousel-slide > div').forEach(slide => {
       slide.style.cursor = 'pointer';
       slide.addEventListener('click', () => {
-        openLightbox(slide);
+        // Prefer the image inside the slide if present
+        const img = slide.querySelector('img');
+        openLightbox(img || slide);
       });
     });
-   
-    // Add click event to all gallery items
-    document.querySelectorAll('.gallery-item > div').forEach(item => {
+
+    // Add click event to gallery items (attach to the item to handle different markup)
+    document.querySelectorAll('.gallery-item').forEach(item => {
       item.style.cursor = 'pointer';
       item.addEventListener('click', () => {
-        openLightbox(item);
+        // Prefer a real <img> inside the gallery item
+        const img = item.querySelector('img');
+        if (img) {
+          openLightbox(img);
+          return;
+        }
+        // Fallback: use the first child div (placeholders)
+        const inner = item.querySelector('div') || item;
+        openLightbox(inner);
       });
     });
    
