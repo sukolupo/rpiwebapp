@@ -1302,21 +1302,62 @@
     const lightboxImage = document.getElementById('lightbox-image');
     const lightboxClose = document.querySelector('.lightbox-close');
    
-    // Function to open lightbox with clicked image
+    // Function to open lightbox with clicked image (handles portrait/landscape)
     function openLightbox(imageElement) {
-      // Clone the image content
-      const clone = imageElement.cloneNode(true);
+      if (!imageElement) return;
+
+      // Clear previous content and orientation classes
+      lightboxImage.classList.remove('portrait', 'landscape');
       lightboxImage.innerHTML = '';
-      lightboxImage.appendChild(clone);
-     
+
+      // Prefer an <img> inside the element when available
+      let imgEl = null;
+      if (imageElement.tagName === 'IMG') {
+        imgEl = imageElement;
+      } else if (imageElement.querySelector) {
+        imgEl = imageElement.querySelector('img');
+      }
+
+      const setOrientationClass = (img) => {
+        if (!img) return;
+        if (img.naturalHeight > img.naturalWidth) {
+          lightboxImage.classList.add('portrait');
+        } else {
+          lightboxImage.classList.add('landscape');
+        }
+      };
+
+      if (imgEl) {
+        // Clone the image so the original layout is unaffected
+        const clone = imgEl.cloneNode(true);
+        // Reset inline sizing to let CSS control behaviour
+        clone.style.width = '';
+        clone.style.height = '';
+        clone.style.maxWidth = '';
+        clone.style.maxHeight = '';
+
+        // If natural dimensions are available, apply orientation immediately
+        if (imgEl.complete && imgEl.naturalWidth && imgEl.naturalHeight) {
+          setOrientationClass(imgEl);
+        } else {
+          // Wait for image to load to determine orientation
+          clone.addEventListener('load', () => setOrientationClass(clone));
+          imgEl.addEventListener('load', () => setOrientationClass(imgEl));
+        }
+
+        lightboxImage.appendChild(clone);
+      } else {
+        // Fallback: clone the whole element (placeholder DIVs, SVGs, etc.)
+        const cloned = imageElement.cloneNode(true);
+        cloned.style.maxWidth = '100%';
+        cloned.style.maxHeight = '100%';
+        cloned.style.objectFit = 'contain';
+        lightboxImage.appendChild(cloned);
+      }
+
       // Show lightbox
       lightbox.style.display = 'flex';
-      // Trigger animation
-      setTimeout(() => {
-        lightbox.classList.add('active');
-      }, 10);
-     
-      // Prevent body scroll
+      setTimeout(() => lightbox.classList.add('active'), 10);
       document.body.style.overflow = 'hidden';
     }
    
