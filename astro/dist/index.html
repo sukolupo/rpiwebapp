@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" class="h-full">
- <head>
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JN Carpentry - Design, Build, Install</title>
@@ -9,11 +9,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&amp;family=Montserrat:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
-  <style>
+ <style>
     body {
       box-sizing: border-box;
     }
-    
+   
     :root {
       --navy: #1a2744;
       --gold: #c9a962;
@@ -21,53 +21,53 @@
       --cream: #faf9f7;
       --navy-light: #243352;
     }
-    
+   
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+   
     html, body {
       height: 100%;
       width: 100%;
     }
-    
+   
     body {
       font-family: 'Montserrat', sans-serif;
       background: linear-gradient(135deg, #faf9f7 0%, #f0ede8 100%);
       color: var(--navy);
       overflow-x: hidden;
     }
-    
+   
     .font-display {
       font-family: 'Cormorant Garamond', serif;
     }
-    
+   
     .bg-navy {
       background-color: var(--navy);
     }
-    
+   
     .text-gold {
       color: var(--gold);
     }
-    
+   
     .text-navy {
       color: var(--navy);
     }
-    
+   
     .border-gold {
       border-color: var(--gold);
     }
-    
+   
     .bg-gold {
       background-color: var(--gold);
     }
-    
+   
     .bg-cream {
       background-color: var(--cream);
     }
-    
+   
     /* Full-screen sections */
     .full-screen-section {
       min-height: 100%;
@@ -75,14 +75,14 @@
       align-items: center;
       justify-content: center;
     }
-    
+   
     /* Carousel Styles */
     .carousel-container {
       position: relative;
       width: 100%;
       height: 600px;
     }
-    
+   
     .carousel-slide {
       position: absolute;
       width: 100%;
@@ -90,16 +90,16 @@
       opacity: 0;
       transition: opacity 0.8s ease-in-out;
     }
-    
+   
     .carousel-slide.active {
       opacity: 1;
     }
-    
+   
     .carousel-slide svg {
       width: 100%;
       height: 100%;
     }
-    
+   
     .carousel-btn {
       position: absolute;
       top: 50%;
@@ -117,31 +117,31 @@
       justify-content: center;
       z-index: 10;
     }
-    
+   
     .carousel-container:hover .carousel-btn {
       opacity: 0.6;
     }
-    
+   
     .carousel-btn:hover {
       opacity: 1 !important;
       background: rgba(26, 39, 68, 0.6);
     }
-    
+   
     .carousel-btn.prev {
       left: 20px;
     }
-    
+   
     .carousel-btn.next {
       right: 20px;
     }
-    
+   
     /* Gallery Grid */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 20px;
     }
-    
+   
     .gallery-item {
       position: relative;
       aspect-ratio: 4/3;
@@ -152,22 +152,22 @@
       border: 4px solid #c9a962;
       border-radius: 8px;
     }
-    
+   
     .gallery-item:hover {
       box-shadow: 0 20px 50px rgba(0,0,0,0.2);
       transform: translateY(-5px);
     }
-    
+   
     .gallery-item > div {
       width: 100%;
       height: 100%;
       transition: transform 0.5s ease;
     }
-    
+   
     .gallery-item:hover > div {
       transform: scale(1.05);
     }
-    
+   
     .gallery-overlay {
       position: absolute;
       inset: 0;
@@ -178,104 +178,93 @@
       align-items: flex-end;
       padding: 20px;
     }
-    
+   
     .gallery-item:hover .gallery-overlay {
       opacity: 1;
     }
-    
-    /* Lightbox Modal */
-    .lightbox {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .lightbox.active {
-      display: flex;
-    }
-    
-    .lightbox-content {
-      position: relative;
-      width: 95%;
-      height: 95%;
-    }
-    
-    .lightbox-img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-    
-    .lightbox-close {
-      position: absolute;
-      top: -40px;
-      right: 0;
-      color: white;
-      font-size: 32px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 0;
-    }
-    
-    .lightbox-close:hover {
-      color: var(--gold);
-    }
-    
+
+   
     /* Decorative Elements */
     .gold-line {
       width: 60px;
       height: 2px;
       background: var(--gold);
     }
-    
+   
     .section-padding {
       padding: 80px 20px;
     }
-    
+   
     @media (max-width: 768px) {
       .carousel-container {
         height: 300px;
       }
-      
+     
       .section-padding {
         padding: 50px 15px;
       }
-      
+     
       .gallery-grid {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         gap: 12px;
       }
     }
-    
+   
     /* Smooth scroll */
     html {
       scroll-behavior: smooth;
     }
-    
+   
     /* Social icon hover */
     .social-icon {
       transition: color 0.3s ease, transform 0.3s ease;
     }
-    
+   
     .social-icon:hover {
       color: var(--gold);
       transform: translateY(-2px);
     }
-    
+   
+    /* Mobile Menu Styles */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 320px;
+      height: 100%;
+      background: linear-gradient(135deg, #0d1421 0%, #1a2744 100%);
+      z-index: 9999;
+      transition: right 0.3s ease;
+      overflow-y: auto;
+      box-shadow: -5px 0 20px rgba(0, 0, 0, 0.5);
+    }
+   
+    .mobile-menu.active {
+      right: 0;
+    }
+   
+    .mobile-menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 9998;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+   
+    .mobile-menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+   
     /* Load animations */
     /* Parallax effect */
     .parallax-bg {
       transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
-    
+   
     @keyframes fadeInDown {
       from {
         opacity: 0;
@@ -286,7 +275,7 @@
         transform: translateY(0);
       }
     }
-    
+   
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -297,7 +286,7 @@
         transform: translateY(0);
       }
     }
-    
+   
     @keyframes fadeInLeft {
       from {
         opacity: 0;
@@ -308,7 +297,7 @@
         transform: translateX(0);
       }
     }
-    
+   
     @keyframes fadeInRight {
       from {
         opacity: 0;
@@ -319,7 +308,7 @@
         transform: translateX(0);
       }
     }
-    
+   
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -328,7 +317,7 @@
         opacity: 1;
       }
     }
-    
+   
     @keyframes scaleIn {
       from {
         opacity: 0;
@@ -339,61 +328,61 @@
         transform: scale(1);
       }
     }
-    
+   
     /* Elements hidden until scrolled into view */
     .scroll-animate {
       opacity: 0;
     }
-    
+   
     .scroll-animate.animate-in {
       animation-fill-mode: forwards;
     }
-    
+   
     .scroll-animate.animate-out {
       animation-fill-mode: forwards;
     }
-    
+   
     .fade-up {
       animation: fadeInUp 0.8s ease-out forwards;
     }
-    
+   
     .fade-down {
       animation: fadeInDown 0.8s ease-out forwards;
     }
-    
+   
     .fade-left {
       animation: fadeInLeft 0.8s ease-out forwards;
     }
-    
+   
     .fade-right {
       animation: fadeInRight 0.8s ease-out forwards;
     }
-    
+   
     .scale-in {
       animation: scaleIn 0.6s ease-out forwards;
     }
-    
+   
     /* Reverse animations for scrolling up */
     .animate-out.fade-up {
       animation: fadeOutDown 0.6s ease-out forwards;
     }
-    
+   
     .animate-out.fade-down {
       animation: fadeOutUp 0.6s ease-out forwards;
     }
-    
+   
     .animate-out.fade-left {
       animation: fadeOutRight 0.6s ease-out forwards;
     }
-    
+   
     .animate-out.fade-right {
       animation: fadeOutLeft 0.6s ease-out forwards;
     }
-    
+   
     .animate-out.scale-in {
       animation: scaleOut 0.5s ease-out forwards;
     }
-    
+   
     @keyframes fadeOutDown {
       from {
         opacity: 1;
@@ -404,7 +393,7 @@
         transform: translateY(30px);
       }
     }
-    
+   
     @keyframes fadeOutUp {
       from {
         opacity: 1;
@@ -415,7 +404,7 @@
         transform: translateY(-30px);
       }
     }
-    
+   
     @keyframes fadeOutLeft {
       from {
         opacity: 1;
@@ -426,7 +415,7 @@
         transform: translateX(-50px);
       }
     }
-    
+   
     @keyframes fadeOutRight {
       from {
         opacity: 1;
@@ -437,7 +426,7 @@
         transform: translateX(50px);
       }
     }
-    
+   
     @keyframes scaleOut {
       from {
         opacity: 1;
@@ -448,12 +437,12 @@
         transform: scale(0.9);
       }
     }
-    
+   
     /* Splash screen animations */
     #splash-screen {
       animation: splashFadeOut 0.8s ease-out 2.5s forwards;
     }
-    
+   
     @keyframes splashFadeOut {
       from {
         opacity: 1;
@@ -464,11 +453,11 @@
         visibility: hidden;
       }
     }
-    
+   
     .splash-logo {
       animation: splashLogoIn 0.8s ease-out;
     }
-    
+   
     @keyframes splashLogoIn {
       from {
         opacity: 0;
@@ -479,11 +468,11 @@
         transform: scale(1) rotate(0deg);
       }
     }
-    
+   
     .splash-text {
       animation: splashTextIn 0.8s ease-out 0.3s backwards;
     }
-    
+   
     @keyframes splashTextIn {
       from {
         opacity: 0;
@@ -494,15 +483,15 @@
         transform: translateY(0);
       }
     }
-    
+   
     header {
       animation: fadeInDown 0.8s ease-out 3s backwards;
     }
-    
+   
     .carousel-container {
       animation: fadeIn 1s ease-out 3.2s backwards;
     }
-    
+   
     /* Decorative tool animations */
     @keyframes floatIn {
       from {
@@ -514,7 +503,7 @@
         transform: translateY(0) rotate(0deg);
       }
     }
-    
+   
     @keyframes floatOut {
       from {
         opacity: 1;
@@ -525,7 +514,7 @@
         transform: translateY(-30px) rotate(-10deg);
       }
     }
-    
+   
     @keyframes slideInFromLeft {
       from {
         opacity: 0;
@@ -536,7 +525,7 @@
         transform: translateX(0);
       }
     }
-    
+   
     @keyframes slideOutToLeft {
       from {
         opacity: 1;
@@ -547,7 +536,7 @@
         transform: translateX(-50px);
       }
     }
-    
+   
     @keyframes slideInFromRight {
       from {
         opacity: 0;
@@ -558,7 +547,7 @@
         transform: translateX(0);
       }
     }
-    
+   
     @keyframes slideOutToRight {
       from {
         opacity: 1;
@@ -569,7 +558,7 @@
         transform: translateX(50px);
       }
     }
-    
+   
     @keyframes carouselFadeOut {
       from {
         opacity: 1;
@@ -580,7 +569,7 @@
         transform: scale(0.95) translateY(-20px);
       }
     }
-    
+   
     @keyframes carouselFadeIn {
       from {
         opacity: 0;
@@ -591,7 +580,7 @@
         transform: scale(1) translateY(0);
       }
     }
-    
+   
     @keyframes carouselSlideDown {
       from {
         opacity: 1;
@@ -602,51 +591,196 @@
         transform: scale(0.85) translateY(100px) rotate(-3deg);
       }
     }
-    
+   
+    /* Lightbox Styles */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+   
+    .lightbox.active {
+      display: flex;
+      opacity: 1;
+    }
+   
+    .lightbox-content {
+      position: relative;
+      max-width: 95%;
+      max-height: 95vh;
+      width: 95vw;
+      height: 95vh;
+      animation: lightboxZoomIn 0.3s ease-out;
+    }
+   
+    .lightbox-content > div {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+   
+    .lightbox-content > div {
+      width: 100%;
+      height: 100%;
+      border: 4px solid #c9a962;
+      border-radius: 8px;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Ensure images inside the lightbox scale correctly for portrait/landscape */
+    #lightbox-image img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      width: auto;
+      height: auto;
+      display: block;
+    }
+
+    #lightbox-image.portrait img {
+      height: 100%;
+      width: auto;
+    }
+
+    #lightbox-image.landscape img {
+      width: 100%;
+      height: auto;
+    }
+   
+    .lightbox-close {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      width: 40px;
+      height: 40px;
+      background: #c9a962;
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease, background 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      z-index: 10000;
+    }
+   
+    .lightbox-close:hover {
+      background: #1a2744;
+      transform: rotate(90deg) scale(1.1);
+    }
+   
+    @keyframes lightboxZoomIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+   
     .tool-hammer {
       animation: floatIn 1s ease-out 0.5s backwards;
     }
-    
+   
     .tool-hammer.animate-out-tool {
       animation: floatOut 0.6s ease-out forwards;
     }
-    
+   
     .tool-saw {
       animation: slideInFromLeft 1s ease-out 0.7s backwards;
     }
-    
+   
     .tool-saw.animate-out-tool {
       animation: slideOutToLeft 0.6s ease-out forwards;
     }
-    
+   
     .tool-logo {
       animation: slideInFromRight 1s ease-out 0.6s backwards;
     }
-    
+   
     .tool-logo.animate-out-tool {
       animation: slideOutToRight 0.6s ease-out forwards;
     }
-    
+   
     .carousel-container.animate-out-carousel {
       animation: carouselSlideDown 0.7s cubic-bezier(0.6, 0.04, 0.98, 0.34) forwards;
     }
-    
+   
     .carousel-container.animate-in-carousel {
       animation: carouselFadeIn 0.6s ease-out forwards;
     }
-  </style>
-  <style>@view-transition { navigation: auto; }</style>
+  .w-20 {
+}
+ .w-auto {
+}
+ </style>
+ <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
  </head>
- <body class="h-full"><!-- Splash Screen -->
-  <div id="splash-screen" class="fixed inset-0 z-50 flex items-center justify-center" style="background: linear-gradient(135deg, #0d1421 0%, #1a2744 100%);">
-   <div class="text-center"><!-- Large Logo -->
-    <div class="mb-8 splash-logo">
-     <svg width="150" height="150" viewbox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" class="mx-auto"><rect x="5" y="20" width="40" height="25" fill="#c9a962" opacity="0.3" /> <path d="M10 45 L10 15 L25 5 L40 15 L40 45" stroke="#c9a962" stroke-width="2" fill="none" /> <rect x="18" y="28" width="14" height="17" stroke="#c9a962" stroke-width="1.5" fill="none" /> <line x1="25" y1="28" x2="25" y2="45" stroke="#c9a962" stroke-width="1" /> <path d="M15 20 L25 12 L35 20" stroke="#c9a962" stroke-width="1.5" fill="none" />
-     </svg>
-    </div><!-- Company Name -->
-    <h1 class="font-display text-5xl sm:text-6xl md:text-7xl font-bold text-white tracking-wide mb-4 splash-text">JN Carpentry</h1><!-- Slogan -->
-    <p class="text-gold text-lg sm:text-xl md:text-2xl tracking-[0.3em] uppercase font-light splash-text">Design, Build, Install</p>
+ <body class="h-full"><!-- Mobile Menu Overlay -->
+  <div id="mobile-menu-overlay" class="mobile-menu-overlay"></div><!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu">
+   <div class="p-6"><!-- Close Button --> <button id="mobile-menu-close" class="ml-auto flex items-center justify-center w-10 h-10 text-white hover:text-gold transition-colors" aria-label="Close menu">
+     <svg width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18" /> <line x1="6" y1="6" x2="18" y2="18" />
+     </svg></button> <!-- Logo -->
+    <div class="flex items-center space-x-3 mb-8 mt-4"><img src="https://i.postimg.cc/7LNcWXrF/final-final.jpg" alt="JN Carpentry Logo" class="h-10 w-auto" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="w-10 h-10 rounded bg-navy flex items-center justify-center text-white font-bold text-lg font-display" style="display: none;">
+      JN
+     </div>
+     <div><span class="font-display text-xl text-white font-semibold">JN Carpentry</span>
+      <p class="text-gold text-xs tracking-widest">Design, Build, Install</p>
+     </div>
+    </div><!-- Contact Info -->
+    <div class="border-t border-white/10 pt-6 space-y-4">
+     <p class="text-gold text-sm font-semibold uppercase tracking-wider mb-3">Contact</p><a href="tel:+447515389396" class="flex items-center space-x-3 text-white hover:text-gold transition-colors group">
+      <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
+       <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+       </svg>
+      </div><span id="mobile-phone" class="text-sm">+44 7515 389396</span> </a> <a href="mailto:info@jncarpentry.com" class="flex items-center space-x-3 text-white hover:text-gold transition-colors group">
+      <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
+       <svg width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /> <polyline points="22,6 12,13 2,6" />
+       </svg>
+      </div><span id="mobile-email" class="text-sm">info@jncarpentry.com</span> </a>
+    </div><!-- Social Media -->
+    <div class="border-t border-white/10 pt-6 mt-6">
+     <p class="text-gold text-sm font-semibold uppercase tracking-wider mb-4">Follow Us</p>
+     <div class="flex items-center space-x-4"><a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-gold hover:text-white transition-all" aria-label="Facebook">
+       <svg width="20" height="20" viewbox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+       </svg></a> <a href="https://www.instagram.com/_jncarpentry?igsh=MW91MW1od2R6M2s2eA==" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-gold hover:text-white transition-all" aria-label="Instagram" onclick="window.open('https://www.instagram.com/_jncarpentry?igsh=MW91MW1od2R6M2s2eA==', '_blank'); return false;">
+       <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /> <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /> <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+       </svg></a> <a href="#" class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-gold hover:text-white transition-all" aria-label="Pinterest">
+       <svg width="20" height="20" viewbox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738.098.119.112.224.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z" />
+       </svg></a>
+     </div>
+    </div>
+   </div>
+  </div><!-- Splash Screen -->
+  <div id="splash-screen" class="fixed inset-0 z-50 flex items-center justify-center p-8" style="background: linear-gradient(135deg, #0d1421 0%, #1a2744 100%);">
+   <div class="w-full h-full flex items-center justify-center"><!-- Full Screen Logo -->
+    <div class="splash-logo w-full h-full flex items-center justify-center"><img src="images/logo/jn_carpentry_logo.png" alt="JN Carpentry Logo" class="max-w-full max-h-full object-contain" loading="lazy" style="box-shadow: 0 30px 80px rgba(201,169,98,0.5);" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+     <div class="w-96 h-96 rounded bg-navy flex items-center justify-center text-white font-bold font-display mx-auto" style="box-shadow: 0 30px 80px rgba(201,169,98,0.5); display: none; font-size: 12rem;">
+      JN
+     </div>
+    </div>
+   </div>
+  </div><!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox">
+   <div class="lightbox-content"><button class="lightbox-close" aria-label="Close enlarged image">✕</button>
+    <div id="lightbox-image"></div>
    </div>
   </div>
   <div id="app-wrapper" class="w-full h-full overflow-auto"><!-- Header -->
@@ -654,20 +788,20 @@
     <div class="absolute inset-0 opacity-10" style="background-image: linear-gradient(45deg, transparent 48%, rgba(201,169,98,0.1) 49%, rgba(201,169,98,0.1) 51%, transparent 52%); background-size: 20px 20px;"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
      <div class="flex justify-between items-center py-8"><!-- Logo & Slogan - Left Side -->
-      <div class="flex items-center space-x-4"><!-- Logo Icon -->
-       <div class="flex-shrink-0">
-        <svg width="50" height="50" viewbox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="20" width="40" height="25" fill="#c9a962" opacity="0.3" /> <path d="M10 45 L10 15 L25 5 L40 15 L40 45" stroke="#c9a962" stroke-width="2" fill="none" /> <rect x="18" y="28" width="14" height="17" stroke="#c9a962" stroke-width="1.5" fill="none" /> <line x1="25" y1="28" x2="25" y2="45" stroke="#c9a962" stroke-width="1" /> <path d="M15 20 L25 12 L35 20" stroke="#c9a962" stroke-width="1.5" fill="none" />
-        </svg>
+      <div class="flex items-center space-x-4"><!-- Logo Icon - Replace the image URL below with your logo -->
+       <div class="flex-shrink-0"><img src="images/logo/jn_carpentry_logo.png" alt="JN Carpentry Logo" class="h-32 w-auto" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"><div class="w-16 h-16 rounded bg-navy flex items-center justify-center text-white font-bold text-2xl font-display" style="display: none;">
+         JN
+        </div>
        </div>
        <div>
         <h1 id="company-name" class="font-display text-2xl sm:text-3xl font-bold text-white tracking-wide">JN Carpentry</h1>
-        <p id="slogan" class="text-gold text-xs sm:text-sm tracking-[0.3em] uppercase font-light">Design, Build, Install</p>
+        <p id="slogan" class="text-gold text-xs sm:text-sm tracking-[0.3em] uppercase font-light">Design | Build | Install</p>
        </div>
       </div><!-- Contact & Social - Right Side -->
       <div class="hidden md:flex items-center space-x-8"><!-- Contact Info -->
        <div class="flex items-center space-x-6 text-white text-sm"><a href="tel:+447515389396" class="flex items-center space-x-2 hover:text-gold transition-colors">
          <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-         </svg><span id="header-phone">+44 7515 389396</span> </a> <a href="mailto:info@jn-carpentry.co.uk" class="flex items-center space-x-2 hover:text-gold transition-colors">
+         </svg><span id="header-phone">+44 7515 389396</span> </a> <a href="mailto:info@jncarpentry.com" class="flex items-center space-x-2 hover:text-gold transition-colors">
          <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /> <polyline points="22,6 12,13 2,6" />
          </svg><span id="header-email">info@jn-carpentry.co.uk</span> </a>
        </div><!-- Social Icons -->
@@ -693,40 +827,25 @@
     <div class="max-w-7xl mx-auto px-4 w-full relative z-10">
      <div class="carousel-container border-4 border-gold rounded-lg overflow-hidden shadow-2xl"><!-- Slide 1 -->
       <div class="carousel-slide active">
-       <div class="w-full h-full bg-gray-300 flex items-center justify-center">
-        <div class="text-center">
-         <svg width="80" height="80" viewbox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" class="mx-auto mb-4"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /> <circle cx="8.5" cy="8.5" r="1.5" /> <polyline points="21 15 16 10 5 21" />
-         </svg>
-         <p class="text-gray-500 text-lg font-medium">Carousel Image 1</p>
-         <p class="text-gray-400 text-sm mt-1">1200 x 500px</p>
-        </div>
-       </div>
+       <img src="images/carousel/CRS_IMG_1.jpg" alt="Carousel Slide 1" class="w-full h-full object-cover">
       </div><!-- Slide 2 -->
       <div class="carousel-slide">
-       <div class="w-full h-full bg-gray-300 flex items-center justify-center">
-        <div class="text-center">
-         <svg width="80" height="80" viewbox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" class="mx-auto mb-4"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /> <circle cx="8.5" cy="8.5" r="1.5" /> <polyline points="21 15 16 10 5 21" />
-         </svg>
-         <p class="text-gray-500 text-lg font-medium">Carousel Image 2</p>
-         <p class="text-gray-400 text-sm mt-1">1200 x 500px</p>
-        </div>
-       </div>
+       <img src="images/carousel/CRS_IMG_2.jpg" alt="Carousel Slide 2" class="w-full h-full object-cover">
       </div><!-- Slide 3 -->
       <div class="carousel-slide">
-       <div class="w-full h-full bg-gray-300 flex items-center justify-center">
-        <div class="text-center">
-         <svg width="80" height="80" viewbox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" class="mx-auto mb-4"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /> <circle cx="8.5" cy="8.5" r="1.5" /> <polyline points="21 15 16 10 5 21" />
-         </svg>
-         <p class="text-gray-500 text-lg font-medium">Carousel Image 3</p>
-         <p class="text-gray-400 text-sm mt-1">1200 x 500px</p>
-        </div>
-       </div>
+       <img src="images/carousel/CRS_IMG_3.jpg" alt="Carousel Slide 3" class="w-full h-full object-cover">
+      </div><!-- Slide 4 -->
+      <div class="carousel-slide">
+       <img src="images/carousel/CRS_IMG_4.jpg" alt="Carousel Slide 4" class="w-full h-full object-cover">
+      </div><!-- Slide 5 -->
+      <div class="carousel-slide">
+       <img src="images/carousel/CRS_IMG_5.jpg" alt="Carousel Slide 5" class="w-full h-full object-cover">
       </div><!-- Navigation Buttons --> <button class="carousel-btn prev" aria-label="Previous slide">
        <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6" />
        </svg></button> <button class="carousel-btn next" aria-label="Next slide">
        <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6" />
        </svg></button> <!-- Slide Indicators -->
-      <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2"><button class="w-2 h-2 rounded-full bg-white/50 transition-all indicator active" data-slide="0" aria-label="Go to slide 1"></button> <button class="w-2 h-2 rounded-full bg-white/50 transition-all indicator" data-slide="1" aria-label="Go to slide 2"></button> <button class="w-2 h-2 rounded-full bg-white/50 transition-all indicator" data-slide="2" aria-label="Go to slide 3"></button>
+      <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2"><button class="w-2 h-2 rounded-full bg-white/50 transition-all indicator active" data-slide="0" aria-label="Go to slide 1"></button> <button class="w-2 h-2 rounded-full bg-white/50 transition-all indicator" data-slide="1" aria-label="Go to slide 2"></button> <button class="w-2 h-2 rounded-full bg-white/50 transition-all indicator" data-slide="2" aria-label="Go to slide 3"></button> <button class="w-2 h-2 rounded-full bg-white/50 transition-all indicator" data-slide="3" aria-label="Go to slide 4"></button> <button class="w-2 h-2 rounded-full bg-white/50 transition-all indicator" data-slide="4" aria-label="Go to slide 5"></button>
       </div>
      </div>
     </div>
@@ -743,8 +862,10 @@
          <div class="text-center">
           <svg width="100" height="100" viewbox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" class="mx-auto mb-4"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /> <circle cx="8.5" cy="8.5" r="1.5" /> <polyline points="21 15 16 10 5 21" />
           </svg>
-          <p class="text-gray-500 text-lg font-medium">About Image</p>
-          <p class="text-gray-400 text-sm mt-1">500 x 600px</p>
+          <img src="images/logo/jn_carpentry_logo.png" alt="JN Carpentry Logo" class="h-32 w-auto" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <!-- <p class="text-gray-500 text-lg font-medium">About Image</p>
+          <p class="text-gray-400 text-sm mt-1">500 x 600px</p> -->
+
          </div>
         </div><!-- Decorative frame -->
         <div class="absolute -bottom-4 -right-4 w-full h-full border-2 border-gold -z-10 rounded-lg"></div>
@@ -752,19 +873,17 @@
       </div><!-- Text Content -->
       <div class="w-full lg:w-1/2 scroll-animate" data-animation="fade-right">
        <div class="gold-line mb-6"></div>
-       <h2 id="about-title" class="font-display text-4xl sm:text-5xl text-navy font-semibold mb-6">About Me</h2>
-       <p id="about-text" class="text-gray-700 leading-relaxed mb-6 text-base sm:text-lg">I believe good carpentry is about doing things properly.</p>
-       <p class="text-gray-700 leading-relaxed mb-8 text-base sm:text-lg">Armed with over 20 years experience working in high-end, bespoke joinery and carpentry, I know what it takes to make your home look the best it can. That's why I approach every project with the same care, precision, and pride. Whether it's a beautifully fitted kitchen, a handmade wardrobe or simply hanging doors, every job gets full commitment and the same attention to detail - regardless of scale.</p>
-       <p class="text-gray-700 leading-relaxed mb-8 text-base sm:text-lg">The result is work that not only looks great, but feels right in your home and is built to last for years to come.</p>
-       <div class="flex flex-wrap gap-8">
-        <div class="text-center p-4 rounded-lg" style="background: linear-gradient(135deg, rgba(201,169,98,0.1), rgba(201,169,98,0.05)); backdrop-filter: blur(10px);"><span class="font-display text-4xl text-gold font-bold" style="text-shadow: 0 0 20px rgba(201,169,98,0.3);">20+</span>
-         <p class="text-sm text-gray-600 mt-1 font-medium">Years Experience</p>
+       <h2 id="about-title" class="font-display text-3xl sm:text-4xl lg:text-5xl text-navy font-semibold mb-6">About Me</h2>
+        <p id="about-text" class="text-gray-700 leading-relaxed mb-6 text-base sm:text-lg">I believe good carpentry is about doing things properly.</p>
+        <p class="text-gray-700 leading-relaxed mb-8 text-base sm:text-lg">Armed with over 20 years experience working in high-end, bespoke joinery and carpentry, I know what it takes to make your home look the best it can. That's why I approach every project with the same care, precision, and pride. Whether it's a beautifully fitted kitchen, a handmade wardrobe or simply hanging doors, every job gets full commitment and the same attention to detail - regardless of scale.</p>       <div class="flex flex-wrap gap-6 sm:gap-8 justify-center lg:justify-start">
+        <div class="text-center p-3 sm:p-4 rounded-lg" style="background: linear-gradient(135deg, rgba(201,169,98,0.1), rgba(201,169,98,0.05)); backdrop-filter: blur(10px);"><span class="font-display text-3xl sm:text-4xl text-gold font-bold" style="text-shadow: 0 0 20px rgba(201,169,98,0.3);">20+</span>
+         <p class="text-xs sm:text-sm text-gray-600 mt-1 font-medium">Years Experience</p>
         </div>
-        <div class="text-center p-4 rounded-lg" style="background: linear-gradient(135deg, rgba(201,169,98,0.1), rgba(201,169,98,0.05)); backdrop-filter: blur(10px);"><span class="font-display text-4xl text-gold font-bold" style="text-shadow: 0 0 20px rgba(201,169,98,0.3);">500+</span>
-         <p class="text-sm text-gray-600 mt-1 font-medium">Projects Completed</p>
+        <div class="text-center p-3 sm:p-4 rounded-lg" style="background: linear-gradient(135deg, rgba(201,169,98,0.1), rgba(201,169,98,0.05)); backdrop-filter: blur(10px);"><span class="font-display text-3xl sm:text-4xl text-gold font-bold" style="text-shadow: 0 0 20px rgba(201,169,98,0.3);">500+</span>
+         <p class="text-xs sm:text-sm text-gray-600 mt-1 font-medium">Projects Completed</p>
         </div>
-        <div class="text-center p-4 rounded-lg" style="background: linear-gradient(135deg, rgba(201,169,98,0.1), rgba(201,169,98,0.05)); backdrop-filter: blur(10px);"><span class="font-display text-4xl text-gold font-bold" style="text-shadow: 0 0 20px rgba(201,169,98,0.3);">100%</span>
-         <p class="text-sm text-gray-600 mt-1 font-medium">Satisfaction</p>
+        <div class="text-center p-3 sm:p-4 rounded-lg" style="background: linear-gradient(135deg, rgba(201,169,98,0.1), rgba(201,169,98,0.05)); backdrop-filter: blur(10px);"><span class="font-display text-3xl sm:text-4xl text-gold font-bold" style="text-shadow: 0 0 20px rgba(201,169,98,0.3);">100%</span>
+         <p class="text-xs sm:text-sm text-gray-600 mt-1 font-medium">Satisfaction</p>
         </div>
        </div>
       </div>
@@ -777,58 +896,124 @@
     <div class="max-w-6xl mx-auto relative z-10">
      <div class="text-center mb-12 scroll-animate" data-animation="fade-up">
       <div class="gold-line mx-auto mb-6"></div>
-      <h2 id="work-title" class="font-display text-4xl sm:text-5xl text-white font-semibold mb-4">My Work</h2>
-      <p class="text-gray-300 max-w-2xl mx-auto">A showcase of bespoke carpentry projects crafted with passion and precision</p>
+      <h2 id="work-title" class="font-display text-3xl sm:text-4xl lg:text-5xl text-white font-semibold mb-4">My Work</h2>
+      <p class="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base px-4">A showcase of bespoke carpentry projects crafted with passion and precision</p>
      </div>
      <div class="gallery-grid"><!-- Gallery Item 1 -->
       <div class="gallery-item scroll-animate" data-animation="scale-in" data-delay="100">
-      <img src="images/gallery/IMG_1.jpg" alt="Kitchen" class="w-full h-full object-cover">
-       <div class="gallery-overlay"><span class="text-white font-medium">Kitchen Project</span></div>
+       <div class="w-full h-full bg-gray-300 flex items-center justify-center">
+        <div class="text-center">
+         <!-- <svg width="60" height="60" viewbox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.5" class="mx-auto mb-2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /> <circle cx="8.5" cy="8.5" r="1.5" /> <polyline points="21 15 16 10 5 21" /> -->         
+          <img src="images/gallery/IMG_1.jpg" alt="Kitchen" class="w-full h-full object-cover">
+         <!-- </svg> -->
+         <!-- <p class="text-gray-500 text-sm font-medium">Gallery Image</p> -->
+        </div>
+       </div>
+       <div class="gallery-overlay"><span class="text-white font-medium">Project 1</span>
+       </div>
       </div><!-- Gallery Item 2 -->
       <div class="gallery-item scroll-animate" data-animation="scale-in" data-delay="150">
-      <img src="images/gallery/IMG_3.jpg" alt="Drawers" class="w-full h-full object-cover">
-       <div class="gallery-overlay"><span class="text-white font-medium"></span></div>
+       <div class="w-full h-full bg-gray-300 flex items-center justify-center">
+        <div class="text-center">
+         <img src="images/gallery/IMG_2.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+       </div>
+       <div class="gallery-overlay"><span class="text-white font-medium">Project 2</span>
+       </div>
       </div><!-- Gallery Item 3 -->
       <div class="gallery-item scroll-animate" data-animation="scale-in" data-delay="200">
-      <img src="images/gallery/IMG_2.jpg" alt="image" class="w-full h-full object-cover">
-       <div class="gallery-overlay"><span class="text-white font-medium"></span></div>
+       <div class="w-full h-full bg-gray-300 flex items-center justify-center">
+        <div class="text-center">
+        <img src="images/gallery/IMG_3.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+       </div>
+       <div class="gallery-overlay"><span class="text-white font-medium">Project 3</span>
+       </div>
       </div><!-- Gallery Item 4 -->
       <div class="gallery-item scroll-animate" data-animation="scale-in" data-delay="250">
-      <img src="images/gallery/IMG_4.jpg" alt="" class="w-full h-full object-cover">
-       <div class="gallery-overlay"><span class="text-white font-medium"></span></div>
+       <div class="w-full h-full bg-gray-300 flex items-center justify-center">
+        <div class="text-center">
+        <img src="images/gallery/IMG_4.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+       </div>
+       <div class="gallery-overlay"><span class="text-white font-medium">Project 4</span>
+       </div>
       </div><!-- Gallery Item 5 -->
       <div class="gallery-item scroll-animate" data-animation="scale-in" data-delay="300">
-      <img src="images/gallery/IMG_5.jpg" alt="" class="w-full h-full object-cover">
-       <div class="gallery-overlay"><span class="text-white font-medium"></span></div>
+       <div class="w-full h-full bg-gray-300 flex items-center justify-center">
+        <div class="text-center">
+          <img src="images/gallery/IMG_5.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+       </div>
+       <div class="gallery-overlay"><span class="text-white font-medium">Project 5</span>
+       </div>
       </div><!-- Gallery Item 6 -->
       <div class="gallery-item scroll-animate" data-animation="scale-in" data-delay="350">
-      <img src="images/gallery/IMG_6.jpg" alt="" class="w-full h-full object-cover">
-       <div class="gallery-overlay"><span class="text-white font-medium"></span></div>
+       <div class="w-full h-full bg-gray-300 flex items-center justify-center">
+        <div class="text-center">
+        <img src="images/gallery/IMG_6.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+       </div>
+       <div class="gallery-overlay"><span class="text-white font-medium">Project 6</span>
+       </div>
       </div><!-- Gallery Item 7 -->
       <div class="gallery-item scroll-animate" data-animation="scale-in" data-delay="400">
-      <img src="images/gallery/IMG_7.jpg" alt="" class="w-full h-full object-cover">
-       <div class="gallery-overlay"><span class="text-white font-medium"></span></div>
+       <div class="w-full h-full bg-gray-300 flex items-center justify-center">
+        <div class="text-center">
+        <img src="images/gallery/IMG_7.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+       </div>
+       <div class="gallery-overlay"><span class="text-white font-medium">Project 7</span>
+       </div>
       </div><!-- Gallery Item 8 -->
       <div class="gallery-item scroll-animate" data-animation="scale-in" data-delay="450">
-      <img src="images/gallery/IMG_8.jpg" alt="" class="w-full h-full object-cover">
-       <div class="gallery-overlay"><span class="text-white font-medium"></span></div>
+       <div class="w-full h-full bg-gray-300 flex items-center justify-center">
+        <div class="text-center">
+        <img src="images/gallery/IMG_8.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+       </div>
+       <div class="gallery-overlay"><span class="text-white font-medium">Project 8</span>
+       </div>
       </div><!-- Gallery Item 9 -->
       <div class="gallery-item scroll-animate" data-animation="scale-in" data-delay="500">
-      <img src="images/gallery/IMG_9.jpg" alt="" class="w-full h-full object-cover">
-       <div class="gallery-overlay"><span class="text-white font-medium"></span></div>
+       <div class="w-full h-full bg-gray-300 flex items-center justify-center">
+        <div class="text-center">
+        <img src="images/gallery/IMG_9.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+       </div>
+       <div class="gallery-overlay"><span class="text-white font-medium">Project 9</span>
+       </div>
       </div><!-- Gallery Item 10 -->
       <div class="gallery-item scroll-animate" data-animation="scale-in" data-delay="550">
-      <img src="images/gallery/IMG_10.jpg" alt="" class="w-full h-full object-cover">
-       <div class="gallery-overlay"><span class="text-white font-medium"></span></div>
+       <div class="w-full h-full bg-gray-300 flex items-center justify-center">
+        <div class="text-center">
+        <img src="images/gallery/IMG_10.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+       </div>
+       <div class="gallery-overlay"><span class="text-white font-medium">Project 10</span>
+       </div>
       </div><!-- Gallery Item 11 -->
       <div class="gallery-item scroll-animate" data-animation="scale-in" data-delay="600">
-      <img src="images/gallery/IMG_11.jpg" alt="" class="w-full h-full object-cover">
-       <div class="gallery-overlay"><span class="text-white font-medium"></span></div>
+       <div class="w-full h-full bg-gray-300 flex items-center justify-center">
+        <div class="text-center">
+        <img src="images/gallery/IMG_11.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+       </div>
+       <div class="gallery-overlay"><span class="text-white font-medium">Project 11</span>
+       </div>
       </div><!-- Gallery Item 12 -->
       <div class="gallery-item scroll-animate" data-animation="scale-in" data-delay="650">
-      <img src="images/gallery/IMG_12.jpg" alt="" class="w-full h-full object-cover">
-       <div class="gallery-overlay"><span class="text-white font-medium"></span></div>
+       <div class="w-full h-full bg-gray-300 flex items-center justify-center">
+        <div class="text-center">
+        <img src="images/gallery/IMG_12.jpg" alt="" class="w-full h-full object-cover">
+        </div>
+       </div>
+       <div class="gallery-overlay"><span class="text-white font-medium">Project 12</span>
+       </div>
       </div>
+     </div><!-- Social Media Message -->
+     <div class="text-center mt-12 scroll-animate" data-animation="fade-up" data-delay="700">
+      <p class="text-gray-300 text-base sm:text-lg">To see more of my work please refer to my <a href="https://www.instagram.com/_jncarpentry?igsh=MW91MW1od2R6M2s2eA==" target="_blank" rel="noopener noreferrer" class="text-gold hover:text-white underline transition-colors">Instagram</a>. </p>
      </div>
     </div>
    </section><!-- Divider -->
@@ -837,71 +1022,68 @@
     <div class="max-w-6xl mx-auto relative z-10">
      <div class="text-center mb-12 scroll-animate" data-animation="fade-up">
       <div class="gold-line mx-auto mb-6"></div>
-      <h2 id="testimonials-title" class="font-display text-4xl sm:text-5xl text-navy font-semibold mb-4">Testimonials</h2>
-      <p class="text-gray-600 max-w-2xl mx-auto">What my clients say about their experience</p>
+      <h2 id="testimonials-title" class="font-display text-3xl sm:text-4xl lg:text-5xl text-navy font-semibold mb-4">Testimonials</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base px-4">What my clients say about their experience</p>
      </div>
-     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative"><!-- Testimonial 1 -->
-      <div class="scroll-animate bg-cream p-8 rounded-lg shadow-lg border-t-4 border-gold relative" data-animation="fade-up" data-delay="100" style="z-index: 1;">
+     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 relative px-4 sm:px-0"><!-- Testimonial 1 -->
+      <div class="scroll-animate bg-cream p-6 sm:p-8 rounded-lg shadow-lg border-t-4 border-gold relative" data-animation="fade-up" data-delay="100" style="z-index: 1;">
        <div class="flex items-center mb-4">
         <svg width="40" height="40" viewbox="0 0 24 24" fill="#c9a962" class="opacity-50"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
         </svg>
        </div>
-       <p class="text-gray-700 mb-6 italic leading-relaxed">"Absolutely stunning work! The custom cabinets transformed our kitchen. Every detail was perfect and the craftsmanship is exceptional."</p>
+       <p class="text-gray-700 mb-6 italic leading-relaxed text-sm sm:text-base">"Beautiful bay window seat with integrated storage — flawless joinery, clever storage compartments, and a cosy reading nook; the carpenter was professional, punctual, and respectful."</p>
        <div class="flex items-center">
         <div class="w-12 h-12 rounded-full bg-gold flex items-center justify-center text-white font-semibold mr-3">
-         SJ
-        </div>
+         PN&nbsp; </div>
         <div>
-         <p class="font-semibold text-navy">Sarah Johnson</p>
-         <p class="text-sm text-gray-500">Kitchen Renovation</p>
+         <p class="font-semibold text-navy text-sm sm:text-base">Paul N&nbsp;</p>
+         <p class="text-xs sm:text-sm text-gray-500">Bay Window Seating</p>
         </div>
        </div>
       </div><!-- Testimonial 2 -->
-      <div class="scroll-animate bg-cream p-8 rounded-lg shadow-lg border-t-4 border-gold relative" data-animation="fade-up" data-delay="200" style="z-index: 1;">
+      <div class="scroll-animate bg-cream p-6 sm:p-8 rounded-lg shadow-lg border-t-4 border-gold relative" data-animation="fade-up" data-delay="200" style="z-index: 1;">
        <div class="flex items-center mb-4">
         <svg width="40" height="40" viewbox="0 0 24 24" fill="#c9a962" class="opacity-50"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
         </svg>
        </div>
-       <p class="text-gray-700 mb-6 italic leading-relaxed">"Professional, reliable, and incredibly skilled. Our new staircase is a work of art. Highly recommend!"</p>
+       <p class="text-gray-700 mb-6 italic leading-relaxed text-sm sm:text-base">"Professional, reliable, and incredibly skilled. We love our custom built units. Highly recommend!"</p>
        <div class="flex items-center">
         <div class="w-12 h-12 rounded-full bg-gold flex items-center justify-center text-white font-semibold mr-3">
-         MT
-        </div>
+         BT&nbsp; </div>
         <div>
-         <p class="font-semibold text-navy">Michael Thompson</p>
-         <p class="text-sm text-gray-500">Staircase Installation</p>
+         <p class="font-semibold text-navy text-sm sm:text-base">Ben T&nbsp;</p>
+         <p class="text-xs sm:text-sm text-gray-500">Utility Room</p>
         </div>
        </div>
       </div><!-- Testimonial 3 -->
-      <div class="scroll-animate bg-cream p-8 rounded-lg shadow-lg border-t-4 border-gold relative" data-animation="fade-up" data-delay="300" style="z-index: 1;">
+      <div class="scroll-animate bg-cream p-6 sm:p-8 rounded-lg shadow-lg border-t-4 border-gold relative" data-animation="fade-up" data-delay="300" style="z-index: 1;">
        <div class="flex items-center mb-4">
         <svg width="40" height="40" viewbox="0 0 24 24" fill="#c9a962" class="opacity-50"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
         </svg>
        </div>
-       <p class="text-gray-700 mb-6 italic leading-relaxed">"Outstanding attention to detail and excellent communication throughout. The fitted wardrobes exceeded all expectations!"</p>
+       <p class="text-gray-700 mb-6 italic leading-relaxed text-sm sm:text-base">"Jamie built and fitted a stunning built‑in wardrobe for our home — flawless craftsmanship, clever use of space. I couldn’t be happier and highly recommend his work."</p>
        <div class="flex items-center">
         <div class="w-12 h-12 rounded-full bg-gold flex items-center justify-center text-white font-semibold mr-3">
-         EC
-        </div>
+         HN&nbsp; </div>
         <div>
-         <p class="font-semibold text-navy">Emma Collins</p>
-         <p class="text-sm text-gray-500">Wardrobe Fitting</p>
+         <p class="font-semibold text-navy text-sm sm:text-base">Hannah N&nbsp;</p>
+         <p class="text-xs sm:text-sm text-gray-500">Wardrobe Fitting</p>
         </div>
        </div>
       </div><!-- Testimonial 4 -->
-      <div class="scroll-animate bg-cream p-8 rounded-lg shadow-lg border-t-4 border-gold relative" data-animation="fade-up" data-delay="400" style="z-index: 1;">
+      <div class="scroll-animate bg-cream p-6 sm:p-8 rounded-lg shadow-lg border-t-4 border-gold relative" data-animation="fade-up" data-delay="400" style="z-index: 1;">
        <div class="flex items-center mb-4">
         <svg width="40" height="40" viewbox="0 0 24 24" fill="#c9a962" class="opacity-50"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
         </svg>
        </div>
-       <p class="text-gray-700 mb-6 italic leading-relaxed">"The custom shelving units are beautiful and perfectly functional. True craftsmanship at its finest. Would definitely hire again!"</p>
+       <p class="text-gray-700 mb-6 italic leading-relaxed text-sm sm:text-base">"The custom shelving units are beautiful and perfectly functional. True craftsmanship at its finest. Would definitely use again!"</p>
        <div class="flex items-center">
         <div class="w-12 h-12 rounded-full bg-gold flex items-center justify-center text-white font-semibold mr-3">
          DR
         </div>
         <div>
-         <p class="font-semibold text-navy">David Richards</p>
-         <p class="text-sm text-gray-500">Custom Shelving</p>
+         <p class="font-semibold text-navy text-sm sm:text-base">David R</p>
+         <p class="text-xs sm:text-sm text-gray-500">Custom Shelving</p>
         </div>
        </div>
       </div>
@@ -913,16 +1095,17 @@
     <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle, rgba(201,169,98,0.3) 1px, transparent 1px); background-size: 50px 50px;"></div>
     <div class="max-w-6xl mx-auto px-4 relative z-10">
      <div class="flex flex-col md:flex-row justify-between items-center gap-8"><!-- Logo -->
-      <div class="flex items-center space-x-3">
-       <svg width="40" height="40" viewbox="0 0 50 50" fill="none"><rect x="5" y="20" width="40" height="25" fill="#c9a962" opacity="0.3" /> <path d="M10 45 L10 15 L25 5 L40 15 L40 45" stroke="#c9a962" stroke-width="2" fill="none" /> <rect x="18" y="28" width="14" height="17" stroke="#c9a962" stroke-width="1.5" fill="none" /> <line x1="25" y1="28" x2="25" y2="45" stroke="#c9a962" stroke-width="1" />
-       </svg>
+      <div class="flex items-center space-x-3"><img src="images/logo/jn_carpentry_logo.png" alt="JN Carpentry Logo" class="h-32 w-auto" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+       <div class="w-10 h-10 rounded bg-navy flex items-center justify-center text-white font-bold text-lg font-display" style="display: none;">
+        JN
+       </div>
        <div><span class="font-display text-xl text-white font-semibold">JN Carpentry</span>
-        <p class="text-gold text-xs tracking-widest">Design, Build, Install</p>
+        <p class="text-gold text-xs tracking-widest">Design | Build | Install</p>
        </div>
       </div><!-- Contact Info -->
       <div class="flex flex-col sm:flex-row items-center gap-6 text-white text-sm"><a href="tel:+447515389396" class="flex items-center space-x-2 hover:text-gold transition-colors">
         <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-        </svg><span id="footer-phone">+44 7515 389396</span> </a> <a href="mailto:info@jn-carpentry.co.uk" class="flex items-center space-x-2 hover:text-gold transition-colors">
+        </svg><span id="footer-phone">+44 7515 389396</span> </a> <a href="mailto:info@jncarpentry.com" class="flex items-center space-x-2 hover:text-gold transition-colors">
         <svg width="16" height="16" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /> <polyline points="22,6 12,13 2,6" />
         </svg><span id="footer-email">info@jn-carpentry.co.uk</span> </a>
       </div><!-- Social Icons -->
@@ -936,7 +1119,7 @@
       </div>
      </div><!-- Copyright -->
      <div class="mt-8 pt-8 border-t border-white/10 text-center">
-      <p class="text-gray-400 text-sm">© 2024 JN Carpentry. All rights reserved.</p>
+      <p class="text-gray-400 text-sm">© 2026 JN Carpentry. All rights reserved.</p>
      </div>
     </div>
    </footer>
@@ -945,9 +1128,9 @@
     // Default configuration
     const defaultConfig = {
       company_name: 'JN Carpentry',
-      slogan: 'Design, Build, Install',
-      about_title: 'About Me',
-      about_text: 'With over 15 years of experience in bespoke carpentry, I take immense pride in transforming spaces through exceptional craftsmanship. From stunning fitted kitchens to elegant staircases, every project receives my complete dedication and attention to detail.',
+      slogan: 'Design | Build | Install',
+      about_title: 'About Me',                                                                                                                                                                                                                          
+      about_text: 'Armed with over 20 years experience working in high-end, bespoke joinery and carpentry, I know what it takes to make your home look the best it can. That’s why I approach every project with the same care, precision, and pride. Whether it’s a beautifully fitted kitchen, a handmade wardrobe or simply hanging doors, every job gets full commitment and the same attention to detail - regardless of scale.The result is work that not only looks great, but feels right in your home and is built to last for years to come.',
       work_title: 'My Work',
       phone_number: '+44 7515 389396',
       email_address: 'info@jn-carpentry.co.uk',
@@ -957,13 +1140,13 @@
       header_color: '#1a2744',
       surface_color: '#ffffff'
     };
-    
+   
     // Carousel functionality
     let currentSlide = 0;
     const slides = document.querySelectorAll('.carousel-slide');
     const indicators = document.querySelectorAll('.indicator');
     let autoSlideInterval;
-    
+   
     function showSlide(index) {
       slides.forEach((slide, i) => {
         slide.classList.toggle('active', i === index);
@@ -974,35 +1157,35 @@
       });
       currentSlide = index;
     }
-    
+   
     function nextSlide() {
       showSlide((currentSlide + 1) % slides.length);
     }
-    
+   
     function prevSlide() {
       showSlide((currentSlide - 1 + slides.length) % slides.length);
     }
-    
+   
     function startAutoSlide() {
       autoSlideInterval = setInterval(nextSlide, 5000);
     }
-    
+   
     function stopAutoSlide() {
       clearInterval(autoSlideInterval);
     }
-    
+   
     document.querySelector('.carousel-btn.next').addEventListener('click', () => {
       stopAutoSlide();
       nextSlide();
       startAutoSlide();
     });
-    
+   
     document.querySelector('.carousel-btn.prev').addEventListener('click', () => {
       stopAutoSlide();
       prevSlide();
       startAutoSlide();
     });
-    
+   
     indicators.forEach((ind, i) => {
       ind.addEventListener('click', () => {
         stopAutoSlide();
@@ -1010,33 +1193,33 @@
         startAutoSlide();
       });
     });
-    
+   
     startAutoSlide();
-    
+   
     // Parallax scroll effect and tool animations on scroll
     let ticking = false;
     let lastScrollTop = 0;
-    
+   
     window.addEventListener('scroll', () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           const scrolled = window.pageYOffset;
           const scrollingDown = scrolled > lastScrollTop;
-          
+         
           // Parallax effect
           const parallaxElements = document.querySelectorAll('.parallax-bg');
           parallaxElements.forEach(el => {
             const speed = 0.5;
             el.style.transform = `translateY(${scrolled * speed}px)`;
           });
-          
+         
           // Tool and carousel animations on scroll
           const carouselSection = document.querySelector('.full-screen-section');
           const carouselRect = carouselSection.getBoundingClientRect();
           const viewportHeight = window.innerHeight;
-          
+         
           const carouselContainer = document.querySelector('.carousel-container');
-          
+         
           // Check if carousel section is out of view when scrolling down
           if (carouselRect.bottom < viewportHeight * 0.3 && scrollingDown) {
             document.querySelector('.tool-hammer').classList.add('animate-out-tool');
@@ -1044,7 +1227,7 @@
             document.querySelector('.tool-logo').classList.add('animate-out-tool');
             carouselContainer.classList.add('animate-out-carousel');
             carouselContainer.classList.remove('animate-in-carousel');
-          } 
+          }
           // Check if carousel section is coming back into view when scrolling up
           else if (carouselRect.bottom > viewportHeight * 0.3 && !scrollingDown) {
             document.querySelector('.tool-hammer').classList.remove('animate-out-tool');
@@ -1053,26 +1236,26 @@
             carouselContainer.classList.remove('animate-out-carousel');
             carouselContainer.classList.add('animate-in-carousel');
           }
-          
+         
           lastScrollTop = scrolled;
           ticking = false;
         });
         ticking = true;
       }
     });
-    
+   
     // Scroll animation observer with bidirectional support
     const observerOptions = {
       threshold: 0.15,
       rootMargin: '0px 0px -100px 0px'
     };
-    
+   
     const animateOnScroll = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         const element = entry.target;
         const animation = element.getAttribute('data-animation');
         const delay = element.getAttribute('data-delay');
-        
+       
         if (entry.isIntersecting) {
           // Scrolling down or element coming into view
           if (delay) {
@@ -1093,12 +1276,151 @@
         }
       });
     }, observerOptions);
-    
+   
     // Observe all elements with scroll-animate class
     document.querySelectorAll('.scroll-animate').forEach(el => {
       animateOnScroll.observe(el);
     });
-    
+   
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image');
+    const lightboxClose = document.querySelector('.lightbox-close');
+   
+    // Function to open lightbox with clicked image (handles portrait/landscape)
+    function openLightbox(imageElement) {
+      if (!imageElement) return;
+
+      // Clear previous content and orientation classes
+      lightboxImage.classList.remove('portrait', 'landscape');
+      lightboxImage.innerHTML = '';
+
+      // Prefer an <img> inside the element when available
+      let imgEl = null;
+      if (imageElement.tagName === 'IMG') {
+        imgEl = imageElement;
+      } else if (imageElement.querySelector) {
+        imgEl = imageElement.querySelector('img');
+      }
+
+      const setOrientationClass = (img) => {
+        if (!img) return;
+        if (img.naturalHeight > img.naturalWidth) {
+          lightboxImage.classList.add('portrait');
+        } else {
+          lightboxImage.classList.add('landscape');
+        }
+      };
+
+      if (imgEl) {
+        // Clone the image so the original layout is unaffected
+        const clone = imgEl.cloneNode(true);
+        // Reset inline sizing to let CSS control behaviour
+        clone.style.width = '';
+        clone.style.height = '';
+        clone.style.maxWidth = '';
+        clone.style.maxHeight = '';
+
+        // If natural dimensions are available, apply orientation immediately
+        if (imgEl.complete && imgEl.naturalWidth && imgEl.naturalHeight) {
+          setOrientationClass(imgEl);
+        } else {
+          // Wait for image to load to determine orientation
+          clone.addEventListener('load', () => setOrientationClass(clone));
+          imgEl.addEventListener('load', () => setOrientationClass(imgEl));
+        }
+
+        lightboxImage.appendChild(clone);
+      } else {
+        // Fallback: clone the whole element (placeholder DIVs, SVGs, etc.)
+        const cloned = imageElement.cloneNode(true);
+        cloned.style.maxWidth = '100%';
+        cloned.style.maxHeight = '100%';
+        cloned.style.objectFit = 'contain';
+        lightboxImage.appendChild(cloned);
+      }
+
+      // Show lightbox
+      lightbox.style.display = 'flex';
+      setTimeout(() => lightbox.classList.add('active'), 10);
+      document.body.style.overflow = 'hidden';
+    }
+   
+    // Function to close lightbox
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      setTimeout(() => {
+        lightbox.style.display = 'none';
+        lightboxImage.innerHTML = '';
+        document.body.style.overflow = '';
+      }, 300);
+    }
+   
+    // Add click event to close button
+    lightboxClose.addEventListener('click', closeLightbox);
+   
+    // Close lightbox when clicking on background
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+   
+    // Close lightbox with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+   
+    // Add click event to all carousel slides
+    document.querySelectorAll('.carousel-slide > div').forEach(slide => {
+      slide.style.cursor = 'pointer';
+      slide.addEventListener('click', () => {
+        // Prefer the image inside the slide if present
+        const img = slide.querySelector('img');
+        openLightbox(img || slide);
+      });
+    });
+
+    // Add click event to gallery items (attach to the item to handle different markup)
+    document.querySelectorAll('.gallery-item').forEach(item => {
+      item.style.cursor = 'pointer';
+      item.addEventListener('click', () => {
+        // Prefer a real <img> inside the gallery item
+        const img = item.querySelector('img');
+        if (img) {
+          openLightbox(img);
+          return;
+        }
+        // Fallback: use the first child div (placeholders)
+        const inner = item.querySelector('div') || item;
+        openLightbox(inner);
+      });
+    });
+   
+    // Mobile Menu functionality
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+   
+    function openMobileMenu() {
+      mobileMenu.classList.add('active');
+      mobileMenuOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+   
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('active');
+      mobileMenuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+   
+    mobileMenuBtn.addEventListener('click', openMobileMenu);
+    mobileMenuClose.addEventListener('click', closeMobileMenu);
+    mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+   
     // Element SDK initialization
     async function onConfigChange(config) {
       document.getElementById('company-name').textContent = config.company_name || defaultConfig.company_name;
@@ -1106,22 +1428,24 @@
       document.getElementById('about-title').textContent = config.about_title || defaultConfig.about_title;
       document.getElementById('about-text').textContent = config.about_text || defaultConfig.about_text;
       document.getElementById('work-title').textContent = config.work_title || defaultConfig.work_title;
-      
+     
       const phone = config.phone_number || defaultConfig.phone_number;
       const email = config.email_address || defaultConfig.email_address;
-      
+     
       document.getElementById('header-phone').textContent = phone;
       document.getElementById('header-email').textContent = email;
       document.getElementById('footer-phone').textContent = phone;
       document.getElementById('footer-email').textContent = email;
-      
+      document.getElementById('mobile-phone').textContent = phone;
+      document.getElementById('mobile-email').textContent = email;
+     
       // Apply colors
       document.documentElement.style.setProperty('--cream', config.background_color || defaultConfig.background_color);
       document.documentElement.style.setProperty('--gold', config.accent_color || defaultConfig.accent_color);
       document.documentElement.style.setProperty('--navy', config.header_color || defaultConfig.header_color);
       document.documentElement.style.setProperty('--white', config.surface_color || defaultConfig.surface_color);
     }
-    
+   
     function mapToCapabilities(config) {
       return {
         recolorables: [
@@ -1166,7 +1490,7 @@
         fontSizeable: undefined
       };
     }
-    
+   
     function mapToEditPanelValues(config) {
       return new Map([
         ['company_name', config.company_name || defaultConfig.company_name],
@@ -1178,7 +1502,7 @@
         ['email_address', config.email_address || defaultConfig.email_address]
       ]);
     }
-    
+   
     if (window.elementSdk) {
       window.elementSdk.init({
         defaultConfig,
@@ -1188,49 +1512,5 @@
       });
     }
   </script>
-  <!-- Lightbox Modal -->
-  <div id="lightbox" class="lightbox">
-    <div class="lightbox-content">
-      <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-      <img id="lightbox-img" class="lightbox-img" src="" alt="Expanded Image">
-    </div>
-  </div>
-  <!-- Lightbox Script -->
-  <script>
-    function openLightbox(imgSrc) {
-      document.getElementById('lightbox').classList.add('active');
-      document.getElementById('lightbox-img').src = imgSrc;
-      document.body.style.overflow = 'hidden';
-    }
-    
-    function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('active');
-      document.body.style.overflow = 'auto';
-    }
-    
-    document.getElementById('lightbox').addEventListener('click', function(e) {
-      if (e.target === this) {
-        closeLightbox();
-      }
-    });
-    
-    // Add click listeners to all gallery items
-    document.querySelectorAll('.gallery-item').forEach(item => {
-      item.style.cursor = 'pointer';
-      item.addEventListener('click', function() {
-        const img = this.querySelector('img');
-        if (img) {
-          openLightbox(img.src);
-        }
-      });
-    });
-    
-    // Close on Escape key
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        closeLightbox();
-      }
-    });
-  </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bfd713d759c4e32',t:'MTc2ODczMjQ5Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c6394abc14d68c6',t:'MTc2OTgwMzQ5MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
