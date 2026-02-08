@@ -1364,16 +1364,16 @@
       }
     });
    
-    // Add click event to all carousel slides
-    document.querySelectorAll('.carousel-slide').forEach((slide, index) => {
-      slide.style.cursor = 'pointer';
-      slide.addEventListener('click', () => {
-        // Only open lightbox if clicking the currently active slide
-        if (index === currentSlide) {
-          const img = slide.querySelector('img');
-          openLightbox(img || slide);
+    // Add click event to carousel container to open active slide image
+    document.querySelector('.carousel-container').addEventListener('click', (e) => {
+      // Only respond to clicks on carousel slides
+      if (e.target.closest('.carousel-slide')) {
+        const activeSlide = document.querySelector('.carousel-slide.active');
+        if (activeSlide) {
+          const img = activeSlide.querySelector('img');
+          openLightbox(img || activeSlide);
         }
-      });
+      }
     });
 
     // Add click event to gallery items (attach to the item to handle different markup)
