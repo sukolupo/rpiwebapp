@@ -1365,12 +1365,14 @@
     });
    
     // Add click event to all carousel slides
-    document.querySelectorAll('.carousel-slide').forEach(slide => {
+    document.querySelectorAll('.carousel-slide').forEach((slide, index) => {
       slide.style.cursor = 'pointer';
       slide.addEventListener('click', () => {
-        // Prefer the image inside the slide if present
-        const img = slide.querySelector('img');
-        openLightbox(img || slide);
+        // Only open lightbox if clicking the currently active slide
+        if (index === currentSlide) {
+          const img = slide.querySelector('img');
+          openLightbox(img || slide);
+        }
       });
     });
 
